@@ -1,0 +1,80 @@
+<div style="margin-top: 20px;">
+    <h5>
+       <span jhiTranslate="coreApp.market.home.title">Markets</span>
+    </h5>
+    <p-dataTable
+        [value]="markets"
+        [editable]="true"
+        [rows]="itemsPerPage"
+        [paginator]="true"
+        [pageLinks]="5"
+        [rowsPerPageOptions]="[10,15,20]"
+        [totalRecords]="totalItems"
+        [responsive]="true"
+        [lazy]="true"
+        dataKey="idMarket"
+        expandableRows="false"
+        (onLazyLoad)="loadDataLazy($event)"
+        (onEditComplete)="updateRowData($event)">
+        <p-header>
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch"
+                        name="currentSearch" placeholder="{{ 'coreApp.market.home.search' | translate }}">
+                    <button class="input-group-addon btn btn-info flat-style-button" (click)="search(currentSearch)" *ngIf="currentSearch">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-addon btn btn-danger flat-style-button" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                    <button type="button" class="input-group-addon flat-style-button" style="margin-left: 50px;"
+                        [routerLink]="['/', { outlets: { popup: ['market-new'] } }]">
+                        <span class="fa fa-plus"></span>
+                    </button>
+                </div>
+            </form>
+        </p-header>
+        <!-- <p-column expander="false" styleClass="col-icon" [style]="{'width': '35px', 'text-align': 'center'}"></p-column> -->
+        <p-column header="{{'coreApp.market.labelSequence'|translate}}" [style]="{'width': '70px', 'text-align': 'center'}">
+            <ng-template let-rowIndex="rowIndex" pTemplate="body">
+                {{rowIndex + 1}}
+            </ng-template>
+        </p-column>
+        <p-column header="{{'global.field.id'|translate}}" [style]="{'width': '80px'}">
+            <ng-template let-rowData="rowData" pTemplate="body">
+                {{rowData.idMarket}}
+            </ng-template>
+        </p-column>
+        <p-column header="{{'coreApp.market.description'|translate}}">
+            <ng-template let-rowData="rowData" pTemplate="body">
+                    {{rowData.description}}
+            </ng-template>
+        </p-column>
+        <p-column header="{{'coreApp.market.labelAction'|translate}}" [style]="{'width': '150px', 'text-align': 'center'}">
+            <ng-template let-rowData="rowData" pTemplate="body">
+                <button pButton type="submit"
+                        [routerLink]="['../market', rowData.idMarket]"
+                        icon="fa-eye"
+                        class="flat-button"
+                        [style]="{'height':'50px'}">
+                </button>
+                <button pButton type="submit"
+                        [routerLink]="['/', { outlets: { popup: 'market/'+ rowData.idMarket + '/edit'} }]"
+                        replaceUrl="true"
+                        icon="fa-pencil"
+                        class="flat-button">
+                </button>
+                <button pButton type="submit"
+                        (click)="delete(rowData.idMarket)"
+                        icon="fa-remove"
+                        class="flat-button">
+                </button>
+            </ng-template>
+        </p-column>
+        <ng-template let-rowData let-rowIndex='rowIndex' pTemplate="rowexpansion">
+        </ng-template>
+    </p-dataTable>
+</div>
+<div style="margin-top: 10px;"></div>
+
+<p-confirmDialog></p-confirmDialog>

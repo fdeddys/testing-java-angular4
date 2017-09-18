@@ -15,6 +15,24 @@
                         <i class="fa fa-th-list"></i><span jhiTranslate="global.menu.submenu.entities">Entities</span>
                     </a>
                     <ul class="nav-dropdown-items">
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['/market']">
+                                <i class="fa fa-file-o" aria-hidden="true"></i>
+                                <span jhiTranslate="global.menu.entities.market">Market</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['/category']">
+                                <i class="fa fa-file-o" aria-hidden="true"></i>
+                                <span jhiTranslate="global.menu.entities.category">Category</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['/product']">
+                                <i class="fa fa-file-o" aria-hidden="true"></i>
+                                <span jhiTranslate="global.menu.entities.product">Product</span>
+                            </a>
+                        </li>
                         <!-- jhipster-needle-add-entity-to-sidebar-menu - JHipster will add entities to the menu here -->
                     </ul>
                 </li>

@@ -1,0 +1,74 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h6 class="modal-title" id="myProductLabel" jhiTranslate="coreApp.product.home.createOrEditLabel">Create or edit a Product</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!product.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id" [(ngModel)]="product.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="coreApp.product.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="product.name"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="coreApp.product.qty" for="field_qty">Qty</label>
+            <input currencyMask class="form-control" name="qty" id="field_qty"
+                [(ngModel)]="product.qty"
+                [options]="{ prefix: '', thousands: '.', decimal: ',', precision: '0' }"
+                 />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="coreApp.product.price" for="field_price">Price</label>
+            <input currencyMask class="form-control" name="price" id="field_price"
+                [(ngModel)]="product.price"
+                [options]="{ prefix: '', thousands: '.', decimal: ',', precision: '0' }"
+                 />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="coreApp.product.discount" for="field_discount">Discount</label>
+            <input currencyMask class="form-control" name="discount" id="field_discount"
+                [(ngModel)]="product.discount"
+                [options]="{ prefix: '', thousands: '.', decimal: ',', precision: '2' }"
+                 />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="coreApp.product.dateIntroduce" for="field_dateIntroduce">Date Introduce</label>
+            <div class="input-group">
+                <p-calendar inputId="field_dateIntroduce" name="input_dateIntroduce" [(ngModel)]="product.dateIntroduce"
+                    dateFormat="dd-mm-yy" [showTime]="true" hourFormat="24" [showSeconds]="true"
+                    [showIcon]="true"></p-calendar>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="coreApp.product.market" for="field_market">Market</label>
+            <select class="form-control" id="field_market" name="market" [(ngModel)]="product.marketId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="marketOption.idMarket" *ngFor="let marketOption of markets; trackBy: trackMarketById">{{marketOption.description}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="coreApp.product.category" for="field_category">Category</label>
+            <select class="form-control" id="field_category" multiple name="category" [(ngModel)]="product.categories">
+                <option [ngValue]="getSelected(product.categories, categoryOption)" *ngFor="let categoryOption of categories; trackBy: trackCategoryById">{{categoryOption.description}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button pButton type="button" data-dismiss="modal" (click)="clear()"
+            label="{{'entity.action.cancel' | translate}}" 
+            icon="fa-ban"
+            class="ui-button-danger flat-label-button">
+        </button>
+        <button pButton type="submit" [disabled]="editForm.form.invalid || isSaving"
+            label="{{'entity.action.save' | translate}}" 
+            icon="fa-save"
+            class="ui-button-primary flat-label-button">
+        </button>
+    </div>
+</form>

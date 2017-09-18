@@ -1,0 +1,31 @@
+{
+    "coreApp": {
+        "product" : {
+            "home": {
+                "title": "Products",
+                "createLabel": "Buat Product baru",
+                "createOrEditLabel": "Buat atau edit Product",
+                "search": "Cari Product"
+            },
+            "created": "Product dengan id {{ param }} telah dibuat",
+            "updated": "Product dengan id {{ param }} telah diperbaharui",
+            "deleted": "Product dengan id {{ param }} telah dihapus",
+            "delete": {
+                "question": "Apakah anda yakin ingin menghapus Product {{ id }}?"
+            },
+            "detail": {
+                "title": "Product"
+            },
+            "name": "Name",
+            "qty": "Qty",
+            "price": "Price",
+            "discount": "Discount",
+            "dateIntroduce": "Date Introduce",
+            "market": "Market",
+            "category": "Category",
+            "labelSequence": "No",
+            "labelAction": "Aksi",
+            "labelDataEmpty": "Tidak ada data yang ditemukan"
+        }
+    }
+}

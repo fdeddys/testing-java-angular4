@@ -1,0 +1,86 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="pushData()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h6 class="modal-title" id="myProductLabel" jhiTranslate="coreApp.product.home.createOrEditLabel">Create or edit a Product</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="clear()">&times;</button>
+    </div>
+
+    <div class="modal-body">
+
+        <p-dataTable
+            [value]="products"
+            [editable]="false"
+            [rows]="itemsPerPage"
+            [paginator]="true"
+            [pageLinks]="5"
+            [rowsPerPageOptions]="[10,15,20]"
+            [totalRecords]="totalItems"
+            [responsive]="true"
+            [lazy]="true"
+            [(selection)]="selected" 
+            dataKey="id"
+            (onLazyLoad)="loadDataLazy($event)">
+            <p-header>
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group w-100 mt-3">
+                        <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch"
+                            name="currentSearch" placeholder="{{ 'coreApp.product.home.search' | translate }}">
+                        <button class="input-group-addon btn btn-info flat-style-button" (click)="search(currentSearch)" *ngIf="currentSearch">
+                            <span class="fa fa-search"></span>
+                        </button>
+                        <button class="input-group-addon btn btn-danger flat-style-button" (click)="clear()" *ngIf="currentSearch">
+                            <span class="fa fa-trash-o"></span>
+                        </button>
+                    </div>
+                </form>
+            </p-header>
+            <p-column selectionMode="multiple" [style]="{'width':'38px'}"></p-column>
+            <p-column header="{{'coreApp.product.labelSequence'|translate}}" [style]="{'width': '70px', 'text-align': 'center'}">
+                <ng-template let-rowIndex="rowIndex" pTemplate="body">
+                    {{rowIndex + 1}}
+                </ng-template>
+            </p-column>
+            <p-column header="{{'coreApp.product.name'|translate}}" field="name" [editable]="true">
+            </p-column>
+            <p-column header="{{'coreApp.product.qty'|translate}}" [style]="{'width': '100px', 'text-align': 'right'}">
+                <ng-template let-rowData="rowData" pTemplate="body">
+                    {{rowData.qty | number}}
+                </ng-template>
+            </p-column>
+            <p-column header="{{'coreApp.product.price'|translate}}" [style]="{'width': '120px', 'text-align': 'right'}">
+                <ng-template let-rowData="rowData" pTemplate="body">
+                    {{rowData.price | number}}
+                </ng-template>
+            </p-column>
+            <p-column header="{{'coreApp.product.discount'|translate}}" [style]="{'width': '100px', 'text-align': 'right'}">
+                    <ng-template let-rowData="rowData" pTemplate="body">
+                        {{rowData.discount | number: '.0-2'}}
+                    </ng-template>
+            </p-column>
+            <p-column header="{{'coreApp.product.dateIntroduce'|translate}}" [style]="{'width': '150px'}">
+                <ng-template let-rowData="rowData" pTemplate="body">
+                    {{rowData.dateIntroduce | date:'dd-MM-yyyy HH:mm:ss'}}
+                </ng-template>
+            </p-column>
+            <p-column header="{{'coreApp.product.market'|translate}}">
+                <ng-template let-rowData="rowData" pTemplate="body">
+                    <div *ngIf="rowData.marketId">
+                        <a [routerLink]="['../market', rowData.marketId  ]" >{{rowData.marketDescription}}</a>
+                    </div>
+                </ng-template>
+            </p-column>
+        </p-dataTable>
+    </div>
+    <div class="modal-footer">
+        <button pButton type="button" data-dismiss="modal" (click)="clearPage()"
+            label="{{'entity.action.cancel' | translate}}" 
+            icon="fa-ban"
+            class="ui-button-danger flat-label-button">
+        </button>
+        <button pButton type="submit" [disabled]="editForm.form.invalid || isSaving"
+            label="{{'entity.action.select' | translate}}" 
+            icon="fa-save"
+            class="ui-button-primary flat-label-button">
+        </button>
+    </div>
+</form>

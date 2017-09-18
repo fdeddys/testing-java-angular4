@@ -1,0 +1,25 @@
+{
+    "coreApp": {
+        "market" : {
+            "home": {
+                "title": "Markets",
+                "createLabel": "Buat Market baru",
+                "createOrEditLabel": "Buat atau edit Market",
+                "search": "Cari Market"
+            },
+            "created": "Market dengan id {{ param }} telah dibuat",
+            "updated": "Market dengan id {{ param }} telah diperbaharui",
+            "deleted": "Market dengan id {{ param }} telah dihapus",
+            "delete": {
+                "question": "Apakah anda yakin ingin menghapus Market {{ id }}?"
+            },
+            "detail": {
+                "title": "Market"
+            },
+            "description": "Description",
+            "labelSequence": "No",
+            "labelAction": "Aksi",
+            "labelDataEmpty": "Tidak ada data yang ditemukan"
+        }
+    }
+}

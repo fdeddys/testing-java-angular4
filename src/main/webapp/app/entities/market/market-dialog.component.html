@@ -1,0 +1,32 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h6 class="modal-title" id="myMarketLabel" jhiTranslate="coreApp.market.home.createOrEditLabel">Create or edit a Market</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!market.idMarket">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id" [(ngModel)]="market.idMarket" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="coreApp.market.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                [(ngModel)]="market.description"  />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button pButton type="button" data-dismiss="modal" (click)="clear()"
+            label="{{'entity.action.cancel' | translate}}" 
+            icon="fa-ban"
+            class="ui-button-danger flat-label-button">
+        </button>
+        <button pButton type="submit" [disabled]="editForm.form.invalid || isSaving"
+            label="{{'entity.action.save' | translate}}" 
+            icon="fa-save"
+            class="ui-button-primary flat-label-button">
+        </button>
+    </div>
+</form>

@@ -142,3 +142,4 @@ Desktop.ini
 ######################
 .eslintcache
 /*.bat
+/src/main/resources/.h2.server.properties

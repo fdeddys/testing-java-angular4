@@ -1,0 +1,67 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "market",
+            "otherEntityName": "market",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "description",
+            "otherEntityKeyName": "idMarket",
+            "otherEntityKeyType": "Integer",
+            "otherEntityKeyFieldName": "idmarket",
+            "fieldName": "idmarket"
+        },
+        {
+            "relationshipName": "category",
+            "otherEntityName": "category",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "description",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "product",
+            "otherEntityKeyName": "idCategory",
+            "otherEntityKeyType": "Integer",
+            "otherEntityKeyFieldName": "idcategory",
+            "fieldName": "idcategory"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldColumnName": "name"
+        },
+        {
+            "fieldName": "qty",
+            "fieldType": "Integer",
+            "fieldColumnName": "qty"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "BigDecimal",
+            "fieldColumnName": "price"
+        },
+        {
+            "fieldName": "discount",
+            "fieldType": "Float",
+            "fieldColumnName": "discount"
+        },
+        {
+            "fieldName": "dateIntroduce",
+            "fieldType": "ZonedDateTime",
+            "fieldColumnName": "dtintro"
+        }
+    ],
+    "changelogDate": "20170000000000",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "product",
+    "jpaMetamodelFiltering": false,
+    "keyName": "id",
+    "hasStatus": false,
+    "hasRole": false,
+    "usePageEdit": true,
+    "keyType": "UUID",
+    "keyFieldName": "id",
+    "exposeAs": "lov",
+    "pagination": "pagination"
+}

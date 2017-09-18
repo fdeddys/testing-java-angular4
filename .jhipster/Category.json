@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "product",
+            "otherEntityName": "product",
+            "relationshipType": "many-to-many",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "category",
+            "otherEntityKeyName": "id",
+            "otherEntityKeyType": "Long",
+            "otherEntityKeyFieldName": "id",
+            "fieldName": "idproduct"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldColumnName": "description"
+        }
+    ],
+    "changelogDate": "20170101000000",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "category",
+    "keyName": "idCategory",
+    "jpaMetamodelFiltering": false,
+    "hasStatus": false,
+    "hasRole": false,
+    "usePageEdit": false,
+    "keyType": "Integer",
+    "keyFieldName": "idcategory",
+    "exposeAs": "none",
+    "pagination": "pagination"
+}

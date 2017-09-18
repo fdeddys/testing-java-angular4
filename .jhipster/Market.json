@@ -1,0 +1,21 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldColumnName": "description"
+        }
+    ],
+    "changelogDate": "20170000000000",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "market",
+    "keyName": "idMarket",
+    "hasStatus": false,
+    "keyType": "Integer",
+    "keyFieldName": "idmarket",
+    "exposeAs": "none",
+    "pagination": "pagination"
+}

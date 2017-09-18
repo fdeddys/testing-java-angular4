@@ -1,0 +1,95 @@
+<p-tabView>
+    <p-tabPanel header="Personal Info">
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="CoreApp.person.firstName" for="field_firstName">First Name</label>
+            <input type="text" class="form-control" name="firstName" id="field_firstName" [(ngModel)]="person.firstName" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="CoreApp.person.lastName" for="field_lastName">Last Name</label>
+            <input type="text" class="form-control" name="lastName" id="field_lastName" [(ngModel)]="person.lastName" />
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="CoreApp.person.pob" for="field_pob">Pob</label>
+                    <input type="text" class="form-control" name="pob" id="field_pob" [(ngModel)]="person.pob" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="CoreApp.person.dob" for="field_dob">Dob</label>
+                    <div class="input-group">
+                        <p-calendar inputId="field_dob" name="input_dob" [(ngModel)]="person.dob" dateFormat="dd-mm-yy" [showIcon]="true"></p-calendar>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="CoreApp.person.bloodType" for="field_bloodType">Blood Type</label>
+                    <input type="text" class="form-control" name="bloodType" id="field_bloodType" [(ngModel)]="person.bloodType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="CoreApp.person.gender" for="field_gender">Gender</label>
+                    <input type="text" class="form-control" name="gender" id="field_gender" [(ngModel)]="person.gender" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="CoreApp.person.personalIdNumber" for="field_personalIdNumber">Personal Id Number</label>
+                    <input type="text" class="form-control" name="personalIdNumber" id="field_personalIdNumber" [(ngModel)]="person.personalIdNumber"
+                    />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="CoreApp.person.familyIdNumber" for="field_familyIdNumber">Family Id Number</label>
+                    <input type="text" class="form-control" name="familyIdNumber" id="field_familyIdNumber" [(ngModel)]="person.familyIdNumber"
+                    />
+                </div>
+
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="CoreApp.person.taxNumber" for="field_taxNumber">Tax Number</label>
+                    <input type="text" class="form-control" name="taxNumber" id="field_taxNumber" [(ngModel)]="person.taxNumber" />
+                </div>
+            </div>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Telecomunication Number">
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="CoreApp.person.phone" for="field_phone">cell Phone 1</label>
+            <input type="text" class="form-control" name="cellPhone1" id="field_phone" [(ngModel)]="person.phone.number" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="CoreApp.person.cellPhone1" for="field_cellPhone1">cell Phone 1</label>
+            <input type="text" class="form-control" name="cellPhone1" id="field_cellPhone1" [(ngModel)]="person.cellPhone1.number" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="CoreApp.person.cellPhone2" for="field_cellPhone2">cell Phone 2</label>
+            <input type="text" class="form-control" name="cellPhone2" id="field_cellPhone2" [(ngModel)]="person.cellPhone2.number" />
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Electronic Address">
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="CoreApp.person.privateMail" for="field_privateMail">private Mail</label>
+            <input type="text" class="form-control" name="privateMail" id="field_privateMail" [(ngModel)]="person.privateMail.address"
+            />
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Postal Address">
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="CoreApp.person.address1" for="field_address1">address 1</label>
+            <input type="text" class="form-control" name="address1" id="field_address1" [(ngModel)]="person.postalAddress.address1" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="CoreApp.person.address2" for="field_address1">address 2</label>
+            <input type="text" class="form-control" name="address2" id="field_address2" [(ngModel)]="person.postalAddress.address2" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="CoreApp.person.district" for="field_district">district</label>
+            <input type="text" class="form-control" name="district" id="field_district" [(ngModel)]="person.postalAddress.district" />
+        </div>
+    </p-tabPanel>
+</p-tabView>
+<ng-content>
+</ng-content>

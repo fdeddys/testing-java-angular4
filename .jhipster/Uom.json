@@ -1,0 +1,29 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldColumnName": "description"
+        },
+        {
+            "fieldName": "abbreviation",
+            "fieldType": "String",
+            "fieldColumnName": "abbreviation"
+        }
+    ],
+    "changelogDate": "20170000000000",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "uom",
+    "jpaMetamodelFiltering": false,
+    "keyName": "idUom",
+    "hasStatus": false,
+    "hasRole": false,
+    "usePageEdit": false,
+    "keyType": "String",
+    "keyFieldName": "iduom",
+    "exposeAs": "none",
+    "pagination": "pagination"
+}

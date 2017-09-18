@@ -10,6 +10,7 @@
                 "market": "Market",
                 "category": "Category",
                 "product": "Product",
+                "uom": "Uom",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "submenu": {

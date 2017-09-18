@@ -46,6 +46,12 @@
                             <span jhiTranslate="global.menu.entities.product">Product</span>
                         </a>
                     </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="uom" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.entities.uom">Uom</span>
+                        </a>
+                    </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>

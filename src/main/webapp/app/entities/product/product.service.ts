@@ -13,7 +13,7 @@ import * as moment from 'moment';
 @Injectable()
 export class ProductService {
     private itemValues: Product[];
-    values: BehaviorSubject<any> = new BehaviorSubject<any>(this.itemValues);
+    values: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>(this.itemValues);
 
     private resourceUrl = SERVER_API_URL + 'api/products';
     private resourceSearchUrl = SERVER_API_URL + 'api/_search/products';

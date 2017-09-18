@@ -53,7 +53,7 @@
         <p-column header="{{'coreApp.category.labelAction'|translate}}" [style]="{'width': '150px', 'text-align': 'center'}">
             <ng-template let-rowData="rowData" pTemplate="body">
                 <button pButton type="submit"
-                        [routerLink]="['../category', rowData.idCategory]"
+                        [routerLink]="['/', { outlets: { popup: 'product-lov'} }]"
                         icon="fa-eye"
                         class="flat-button"
                         [style]="{'height':'50px'}">

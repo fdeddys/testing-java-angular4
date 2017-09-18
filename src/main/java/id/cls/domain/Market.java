@@ -30,6 +30,9 @@ public class Market implements Serializable {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "info")
+    private String info;
+
     public Integer getIdMarket() {
         return this.idMarket;
     }
@@ -49,6 +52,14 @@ public class Market implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getInfo() {
+        return this.info;
+    }
+
+    public void setInfo(String value) {
+        this.info = value;
     }
 
     @Override

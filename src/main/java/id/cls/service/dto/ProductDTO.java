@@ -33,6 +33,8 @@ public class ProductDTO implements Serializable {
 
     private String marketDescription;
 
+    private String marketInfo;
+
     private Set<CategoryDTO> categories = new HashSet<>();
 
     public UUID getId() {
@@ -93,6 +95,14 @@ public class ProductDTO implements Serializable {
 
     public String getMarketDescription() {
         return marketDescription;
+    }
+
+    public void setMarketInfo(String marketInfo) {
+        this.marketInfo = marketInfo;
+    }
+
+    public String getMarketInfo() {
+        return marketInfo;
     }
 
     public void setMarketDescription(String marketDescription) {

@@ -11,6 +11,7 @@ import { PaginationConfig } from '../../blocks/config/uib-pagination.config';
 import { LazyLoadEvent } from 'primeng/primeng';
 import { ToasterService } from '../../shared/alert/toaster.service';
 import { ConfirmationService } from 'primeng/primeng';
+import { ProductService } from '../product';
 
 @Component({
     selector: 'jhi-category',
@@ -22,6 +23,7 @@ export class CategoryComponent implements OnInit, OnDestroy {
     categories: Category[];
     error: any;
     success: any;
+    prodSub: Subscription;
     eventSubscriber: Subscription;
     currentSearch: string;
     routeData: any;
@@ -45,7 +47,8 @@ export class CategoryComponent implements OnInit, OnDestroy {
         private eventManager: JhiEventManager,
         private paginationUtil: JhiPaginationUtil,
         private paginationConfig: PaginationConfig,
-        private toasterService: ToasterService
+        private toasterService: ToasterService,
+        private productService: ProductService
     ) {
         this.itemsPerPage = ITEMS_PER_PAGE;
         this.routeData = this.activatedRoute.data.subscribe((data) => {
@@ -57,6 +60,22 @@ export class CategoryComponent implements OnInit, OnDestroy {
         this.currentSearch = activatedRoute.snapshot.params['search'] ? activatedRoute.snapshot.params['search'] : '';
     }
 
+    ngOnInit() {
+        this.loadAll();
+        this.principal.identity().then((account) => {
+            this.currentAccount = account;
+        });
+        this.registerChangeInCategories();
+        this.prodSub = this.productService.values.subscribe((r) => {
+            console.log('Nilai : ', r);
+        })
+    }
+
+    ngOnDestroy() {
+        this.eventManager.destroy(this.eventSubscriber);
+        this.prodSub.unsubscribe();
+    }
+    
     loadAll() {
         if (this.currentSearch) {
             this.categoryService.search({
@@ -119,18 +138,6 @@ export class CategoryComponent implements OnInit, OnDestroy {
             sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
         }]);
         this.loadAll();
-    }
-
-    ngOnInit() {
-        this.loadAll();
-        this.principal.identity().then((account) => {
-            this.currentAccount = account;
-        });
-        this.registerChangeInCategories();
-    }
-
-    ngOnDestroy() {
-        this.eventManager.destroy(this.eventSubscriber);
     }
 
     trackId(index: number, item: Category) {

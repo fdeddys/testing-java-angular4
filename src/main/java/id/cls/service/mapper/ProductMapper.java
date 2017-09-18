@@ -13,6 +13,7 @@ public interface ProductMapper extends EntityMapper <ProductDTO, Product> {
 
     @Mapping(source = "market.idMarket", target = "marketId")
     @Mapping(source = "market.description", target = "marketDescription")
+    @Mapping(source = "market.info", target = "marketInfo")
     ProductDTO toDto(Product product); 
 
     @Mapping(source = "marketId", target = "market")

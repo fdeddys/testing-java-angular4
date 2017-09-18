@@ -16,6 +16,8 @@ public class MarketDTO implements Serializable {
 
     private String description;
 
+    private String info;
+
     public Integer getIdMarket() {
         return this.idMarket;
     }
@@ -34,7 +36,15 @@ public class MarketDTO implements Serializable {
     
     public Integer getId() {
         return this.idMarket;
-    }    
+    }
+
+    public String getInfo() {
+        return this.info;
+    }
+
+    public void setInfo(String value) {
+        this.info = value;
+    }
 
     @Override
     public boolean equals(Object o) {

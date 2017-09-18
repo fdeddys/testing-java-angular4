@@ -26,6 +26,8 @@ import java.util.UUID;
 @Transactional
 public class ProductService {
 
+    public final static int PROCESCC_DEPLOY = 101;
+
     private final Logger log = LoggerFactory.getLogger(ProductService.class);
 
     private final ProductRepository productRepository;
@@ -110,7 +112,7 @@ public class ProductService {
         ProductDTO r = dto;
         if (r != null) {
             switch (id) {
-                case 1:
+                case PROCESCC_DEPLOY:
                     break;
                 default:
                     break;

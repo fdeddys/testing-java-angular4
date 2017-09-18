@@ -45,31 +45,14 @@
                     {{rowData.name}}
             </ng-template>
         </p-column>
-        <p-column header="{{'coreApp.product.qty'|translate}}" [style]="{'width': '100px', 'text-align': 'right'}">
+        <p-column header="{{'coreApp.product.name'|translate}}">
             <ng-template let-rowData="rowData" pTemplate="body">
-                    {{rowData.qty | number}}
-            </ng-template>
-        </p-column>
-        <p-column header="{{'coreApp.product.price'|translate}}" [style]="{'width': '120px', 'text-align': 'right'}">
-            <ng-template let-rowData="rowData" pTemplate="body">
-                    {{rowData.price | number}}
-            </ng-template>
-        </p-column>
-        <p-column header="{{'coreApp.product.discount'|translate}}" [style]="{'width': '100px', 'text-align': 'right'}">
-            <ng-template let-rowData="rowData" pTemplate="body">
-                    {{rowData.discount | number: '.0-2'}}
+                    {{rowData.marketInfo}}
             </ng-template>
         </p-column>
         <p-column header="{{'coreApp.product.dateIntroduce'|translate}}" [style]="{'width': '150px'}">
             <ng-template let-rowData="rowData" pTemplate="body">
                     {{rowData.dateIntroduce | date:'dd-MM-yyyy HH:mm:ss'}}
-            </ng-template>
-        </p-column>
-        <p-column header="{{'coreApp.product.market'|translate}}">
-            <ng-template let-rowData="rowData" pTemplate="body">
-                <div *ngIf="rowData.marketId">
-                    <a [routerLink]="['../market', rowData.marketId  ]" >{{rowData.marketDescription}}</a>
-                </div>
             </ng-template>
         </p-column>
         <p-column header="{{'coreApp.product.labelAction'|translate}}" [style]="{'width': '150px', 'text-align': 'center'}">

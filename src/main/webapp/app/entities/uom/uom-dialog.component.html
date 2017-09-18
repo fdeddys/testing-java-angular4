@@ -6,9 +6,9 @@
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group" [hidden]="!uom.idUom">
+        <div class="form-group">
             <label for="id" jhiTranslate="global.field.id">ID</label>
-            <input type="text" class="form-control" id="id" name="id" [(ngModel)]="uom.idUom" readonly />
+            <input type="text" class="form-control" id="id" name="id" [(ngModel)]="uom.idUom"/>
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="coreApp.uom.description" for="field_description">Description</label>

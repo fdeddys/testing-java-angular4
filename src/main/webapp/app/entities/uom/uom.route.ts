@@ -5,6 +5,7 @@ import { UserRouteAccessService } from '../../shared';
 import { JhiPaginationUtil } from 'ng-jhipster';
 
 import { UomComponent } from './uom.component';
+import { UomLovPopupComponent } from './uom-as-lov.component';
 import { UomPopupComponent } from './uom-dialog.component';
 
 @Injectable()
@@ -39,6 +40,16 @@ export const uomRoute: Routes = [
 ];
 
 export const uomPopupRoute: Routes = [
+    {
+        path: 'uom-lov',
+        component: UomLovPopupComponent,
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'coreApp.uom.home.title'
+        },
+        canActivate: [UserRouteAccessService],
+        outlet: 'popup'
+    },
     {
         path: 'uom-new',
         component: UomPopupComponent,

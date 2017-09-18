@@ -24,6 +24,6 @@
     "usePageEdit": false,
     "keyType": "String",
     "keyFieldName": "iduom",
-    "exposeAs": "none",
+    "exposeAs": "lov",
     "pagination": "pagination"
 }

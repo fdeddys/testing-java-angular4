@@ -11,6 +11,8 @@ import {
     uomRoute,
     uomPopupRoute,
     UomResolvePagingParams,
+    UomAsLovComponent,
+    UomLovPopupComponent,
 } from './';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -91,16 +93,22 @@ const ENTITY_STATES = [
     ],
     exports: [
         UomComponent,
+        UomAsLovComponent,
+        UomLovPopupComponent,
     ],
     declarations: [
         UomComponent,
         UomDialogComponent,
         UomPopupComponent,
+        UomAsLovComponent,
+        UomLovPopupComponent,
     ],
     entryComponents: [
         UomComponent,
         UomDialogComponent,
         UomPopupComponent,
+        UomAsLovComponent,
+        UomLovPopupComponent,
     ],
     providers: [
         UomService,

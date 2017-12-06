@@ -3,7 +3,7 @@
         "product" : {
             "home": {
                 "title": "Products",
-                "createLabel": "Buat Product baru yaa",
+                "createLabel": "Buat Product baru ",
                 "createOrEditLabel": "Buat atau edit Product",
                 "search": "Cari Product"
             },

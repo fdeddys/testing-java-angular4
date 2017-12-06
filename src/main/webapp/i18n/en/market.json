@@ -19,7 +19,8 @@
             "description": "Description",
             "labelSequence": "No",
             "labelAction": "Action",
-            "labelDataEmpty": "No Data Found"
+            "labelDataEmpty": "No Data Found",
+            "info": "infoooo"
         }
     }
 }

@@ -47,9 +47,18 @@ export class ProductEditComponent implements OnInit, OnDestroy {
         });
         this.isSaving = false;
         this.marketService.query()
-            .subscribe((res: ResponseWrapper) => { this.markets = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+            .subscribe(
+                (res: ResponseWrapper) => { this.markets = res.json; },
+                (res: ResponseWrapper) => this.onError(res.json),
+                () => console.log('finally')
+            );
+
         this.categoryService.query()
-            .subscribe((res: ResponseWrapper) => { this.categories = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+            .subscribe(
+                (res: ResponseWrapper) => { this.categories = res.json; console.log('sukses..') },
+                (res: ResponseWrapper) => this.onError(res.json),
+                () => console.log('aaaa')
+            );
     }
 
     ngOnDestroy() {
